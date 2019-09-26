@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- TODO 03: Layout definition. -->
-    <!-- TODO 04: Show vertical scrollbars -->
-    <!-- TODO 05: Enable scrolling cache -->
-    <!-- Scrolling cache is basically a drawing cache. In android, you can ask a View to store its
-    drawing in a cache called drawing cache (basically a bitmap). By default, a drawing cache is
-    disabled because it takes up memory. So why is it useful? Because using a drawing cache make your
-    animation smooth compared to redrawing the view at every frame. -->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

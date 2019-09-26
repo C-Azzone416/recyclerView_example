@@ -15,9 +15,6 @@ import java.util.List;
  * Created by irconde on 2019-09-25.
  */
 
-// TODO 01. We are using the DataGenerator as data source. It supplies RecyclerView with item content. Specifically it generates a people collection
-// Each person is represented by an instance of People class, which encloses the name, the image id, the image drawable and the email of that person
-
 public class DataGenerator {
 
     /**
@@ -33,12 +30,20 @@ public class DataGenerator {
 
         for (int i = 0; i < drw_arr.length(); i++) {
             People obj = new People();
-            obj.image = drw_arr.getResourceId(i, -1);
-            obj.name = name_arr[i];
-            obj.email = Tools.getEmailFromName(obj.name);
-            obj.imageDrw = ctx.getResources().getDrawable(obj.image);
+            obj.setImage(drw_arr.getResourceId(i, -1));
+            obj.setName(name_arr[i]);
+            obj.setEmail(Tools.getEmailFromName(obj.getName()));
+            obj.setImageDrw(ctx.getResources().getDrawable(obj.getImage()));
             items.add(obj);
         }
+        Collections.shuffle(items);
+        return items;
+    }
+
+    public static List<String> getStringsMonth(Context ctx) {
+        List<String> items = new ArrayList<>();
+        String arr[] = ctx.getResources().getStringArray(R.array.month);
+        for (String s : arr) items.add(s);
         Collections.shuffle(items);
         return items;
     }

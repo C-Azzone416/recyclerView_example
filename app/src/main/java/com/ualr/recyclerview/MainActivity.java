@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import com.ualr.recyclerview.adapter.AdapterListBasic;
 import com.ualr.recyclerview.data.DataGenerator;
@@ -13,6 +15,8 @@ import com.ualr.recyclerview.model.People;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private RecyclerView recyclerView;
     private AdapterListBasic mAdapter;
@@ -25,21 +29,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        // TODO 06: Prepare the data source
         List<People> items = DataGenerator.getPeopleData(this);
         items.addAll(DataGenerator.getPeopleData(this));
         items.addAll(DataGenerator.getPeopleData(this));
 
-        // TODO 07: Instantiate the adapter and pass its data source.
-        // TODO 10: Create the new AdapterListBasic class
+        // TODO 04. We create sections with 5 people in each one
+
         mAdapter = new AdapterListBasic(this, items);
 
-        // TODO 08: Get our RecyclerView layout and plug the adapter into the RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setAdapter(mAdapter);
 
-        // TODO 09: Define the LayoutManager and plug it into RecyclerView
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        mAdapter.setOnItemClickListener(new AdapterListBasic.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, People obj, int position) {
+                Log.d(TAG, String.format("The user has tapped on %s", obj.getName()));
+            }
+        });
     }
 }
