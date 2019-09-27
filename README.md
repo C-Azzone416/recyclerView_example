@@ -6,5 +6,7 @@ This project contains code regarding the basic use of the RecyclerView class. In
 * basic-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in basic-recyclerview
 * click-handling-recyclerview: This branch contains the code necessary to handle click events on RecyclerView items
 * click-handling-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in click-handling-recyclerview
-* sectioned-recyclerview: This branch contains the code rnecessary to define different sections and the corresponding section headers in a RecyclerView-based list
+* sectioned-recyclerview: This branch contains the code necessary to define different sections and the corresponding section headers in a RecyclerView-based list
 * sectioned-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in sectioned-recyclerview
+* changes-recyclerview: This branch contains the code necessary to add and remote items in a RecyclerView-based list
+* changes-recyclerview-starter: Following the TODO comments you'll can get a result very similar to the one available in changes-recyclerview
