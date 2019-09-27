@@ -124,7 +124,7 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             lyt_parent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mOnItemClickListener.onItemClick(view, (People) mItems.get(getAdapterPosition()), getAdapterPosition());
+                    mOnItemClickListener.onItemClick(view, (People) mItems.get(getLayoutPosition()), getLayoutPosition());
                 }
             });
         }
