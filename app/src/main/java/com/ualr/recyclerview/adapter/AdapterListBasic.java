@@ -91,12 +91,6 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             People person = (People) item;
             viewHolder.name.setText(person.getName());
             Tools.displayImageRound(mContext, viewHolder.image, person.getImage());
-            viewHolder.lyt_parent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mOnItemClickListener.onItemClick(view, (People) mItems.get(position), position);
-                }
-            });
         } else {
             // Instance of SectionHeaderViewHolder
             SectionHeaderViewHolder viewHolder = (SectionHeaderViewHolder) holder;
@@ -127,6 +121,12 @@ public class AdapterListBasic extends RecyclerView.Adapter{
             image = v.findViewById(R.id.image);
             name = v.findViewById(R.id.name);
             lyt_parent = v.findViewById(R.id.lyt_parent);
+            lyt_parent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onItemClick(view, (People) mItems.get(getAdapterPosition()), getAdapterPosition());
+                }
+            });
         }
     }
 
